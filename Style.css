@@ -1,0 +1,130 @@
+/* =======================
+   TREASURE-HOME STYLE.CSS
+   ======================= */
+
+/* Entire Page Style */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f9fc; /* soft background */
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header Bar */
+header {
+  background-color: #1e3d59; /* Navy */
+  padding: 35px 20px;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 3em;
+  font-family: 'Georgia', serif;
+  font-weight: bold;
+  color: #ffffff; /* White text */
+  letter-spacing: 1.5px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* stronger shadow for contrast */
+  margin: 0;
+}
+
+header p {
+  color: #ffffff;
+  font-weight: 600;
+  margin-top: 8px;
+  font-size: 1.1em;
+}
+
+/* Navigation Links */
+nav {
+  text-align: center;
+  background-color: #14324b;
+}
+nav a {
+  display: inline-block;
+  padding: 12px 18px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+nav a:hover {
+  background-color: #0d2438;
+}
+
+/* Main Content Area */
+main {
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #ccc;
+}
+
+h1, h2, h3 {
+  color: #1e3d59; /* Navy headings */
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  margin: 15px 12px;
+  padding: 14px 24px;
+  background-color: #1e3d59; /* Navy background */
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1.1em;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+.btn:hover {
+  background-color: #ffcc00; /* Gold on hover */
+  color: #1e3d59; /* Navy text on hover */
+  transform: translateY(-2px); /* Slight lift */
+}
+
+/* Image Grid (Gallery) */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+.grid img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.grid img:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+/* Footer */
+footer {
+  background-color: #1e3d59;
+  color: white;
+  text-align: center;
+  padding: 15px 10px;
+  margin-top: 40px;
+  font-size: 0.95em;
+}
+
+/* WhatsApp Button (contact) */
+.whatsapp {
+  background-color: #25d366;
+  color: white;
+  padding: 10px 16px;
+  text-decoration: none;
+  border-radius: 6px;
+  display: inline-block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+.whatsapp:hover {
+  background-color: #1ebe5d;
+}
