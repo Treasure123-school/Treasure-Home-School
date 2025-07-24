@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Login | Treasure-Home School</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #eaf3fa;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .admin-login-container {
+      max-width: 420px;
+      margin: 100px auto;
+      background-color: white;
+      padding: 35px;
+      border-radius: 12px;
+      box-shadow: 0 0 18px rgba(0, 0, 0, 0.15);
+    }
+
+    .admin-login-container h2 {
+      text-align: center;
+      color: #1e3d59;
+      margin-bottom: 30px;
+      font-size: 24px;
+    }
+
+    .admin-login-container label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 6px;
+      color: #333;
+    }
+
+    .admin-login-container input[type="text"],
+    .admin-login-container input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+      margin-bottom: 20px;
+      box-sizing: border-box;
+    }
+
+    .password-box {
+      position: relative;
+    }
+
+    .password-box button.toggle-btn {
+      position: absolute;
+      right: 12px;
+      top: 11px;
+      background: none;
+      border: none;
+      color: #1e3d59;
+      font-size: 14px;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .admin-login-container button.login-btn {
+      width: 100%;
+      padding: 14px;
+      background-color: #1e3d59;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .admin-login-container button.login-btn:hover {
+      background-color: #14324b;
+    }
+
+    @media (max-width: 480px) {
+      .admin-login-container {
+        margin: 40px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="admin-login-container">
+  <h2>🔒 Admin Login</h2>
+
+  <label for="adminUsername">Username</label>
+  <input type="text" id="adminUsername" placeholder="Enter Admin Username" />
+
+  <label for="adminPassword">Password</label>
+  <div class="password-box">
+    <input type="password" id="adminPassword" placeholder="Enter Admin Password" />
+    <button class="toggle-btn" onclick="togglePassword()">Show</button>
+  </div>
+
+  <button class="login-btn" onclick="loginAdmin()">Login</button>
+</div>
+
+<script>
+  function togglePassword() {
+    const passInput = document.getElementById("adminPassword");
+    const toggleBtn = document.querySelector(".toggle-btn");
+    if (passInput.type === "password") {
+      passInput.type = "text";
+      toggleBtn.textContent = "Hide";
+    } else {
+      passInput.type = "password";
+      toggleBtn.textContent = "Show";
+    }
+  }
+
+  function loginAdmin() {
+    const username = document.getElementById("adminUsername").value.trim();
+    const password = document.getElementById("adminPassword").value.trim();
+
+    const correctUsername = "Ogundare Ademuyiwa";
+    const correctPassword = "Treasure@8";
+
+    if (username === correctUsername && password === correctPassword) {
+      alert("✅ Login Successful!");
+      window.location.href = "admin-dashboard.html";
+    } else {
+      alert("❌ Invalid login details. Try again.");
+    }
+  }
+</script>
+
+</body>
+</html>
