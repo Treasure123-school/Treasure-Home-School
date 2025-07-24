@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Treasure-Home Exam Launcher</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      background: #f4f9ff;
+      font-family: Arial, sans-serif;
+      padding: 30px;
+    }
+    .box {
+      max-width: 500px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ccc;
+    }
+    input, select {
+      width: 100%;
+      padding: 12px;
+      margin: 15px 0;
+      font-size: 1em;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    button {
+      width: 100%;
+      padding: 14px;
+      background: #1e3d59;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .toggle-btn {
+      position: absolute;
+      right: 20px;
+      top: 212px;
+      background: none;
+      border: none;
+      color: #1e3d59;
+      font-size: 0.9em;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div class="box">
+  <h2>📝 Start Exam</h2>
+
+  <input type="text" id="studentName" placeholder="Enter Full Name" />
+
+  <select id="studentClass">
+    <option value="">Select Class</option>
+    <option value="jss1">JSS 1</option>
+    <option value="jss2">JSS 2</option>
+    <option value="jss3">JSS 3</option>
+  </select>
+
+  <select id="studentSubject">
+    <option value="">Select Subject</option>
+    <option value="english">English</option>
+    <option value="computer">Computer</option>
+  </select>
+
+  <div style="position: relative;">
+    <input type="password" id="examPin" placeholder="Enter Exam PIN" />
+    <button type="button" class="toggle-btn" onclick="togglePIN()">Show</button>
+  </div>
+
+  <button onclick="startExam()">Start Exam</button>
+</div>
+
+<script>
+  const validPins = {
+    jss1: "J1-TERM3",
+    jss2: "J2-TERM3",
+    jss3: "J3-TERM3"
+  };
+
+  function togglePIN() {
+    const pinInput = document.getElementById("examPin");
+    const toggleBtn = document.querySelector(".toggle-btn");
+    if (pinInput.type === "password") {
+      pinInput.type = "text";
+      toggleBtn.textContent = "Hide";
+    } else {
+      pinInput.type = "password";
+      toggleBtn.textContent = "Show";
+    }
+  }
+
+  function startExam() {
+    const name = document.getElementById("studentName").value.trim();
+    const cls = document.getElementById("studentClass").value;
+    const subject = document.getElementById("studentSubject").value;
+    const pin = document.getElementById("examPin").value.trim();
+
+    if (!name || !cls || !subject || !pin) {
+      alert("❗Please complete all fields.");
+      return;
+    }
+
+    if (pin !== validPins[cls]) {
+      alert("❌ Invalid Exam PIN for " + cls.toUpperCase());
+      return;
+    }
+
+    // Store student name to show later
+    localStorage.setItem("studentName", name);
+
+    // Redirect to correct subject/class exam page
+    const destination = `exam-pages/${cls}_${subject}.html`;
+    window.location.href = destination;
+  }
+</script>
+
+</body>
+</html>
