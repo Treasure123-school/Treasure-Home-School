@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Start Exam</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #eef5fc;
+      padding: 30px;
+    }
+    .box {
+      max-width: 500px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ccc;
+    }
+    input, select {
+      width: 100%;
+      padding: 12px;
+      margin: 15px 0;
+      font-size: 1em;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    button {
+      width: 100%;
+      padding: 14px;
+      background: #1e3d59;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div class="box">
+  <h2>📝 Start Exam</h2>
+
+  <input type="text" id="studentName" placeholder="Enter Full Name" />
+  <select id="studentClass">
+    <option value="">Select Class</option>
+    <option value="jss1">JSS 1</option>
+  </select>
+  <select id="studentSubject">
+    <option value="">Select Subject</option>
+    <option value="english">English</option>
+  </select>
+  <input type="password" id="examPin" placeholder="Enter Exam PIN" />
+  <button onclick="startExam()">Start Exam</button>
+</div>
+
+<script>
+  const validPins = {
+    jss1: "J1-TERM3"
+  };
+
+  function startExam() {
+    const name = document.getElementById("studentName").value.trim();
+    const cls = document.getElementById("studentClass").value;
+    const subject = document.getElementById("studentSubject").value;
+    const pin = document.getElementById("examPin").value.trim();
+
+    if (!name || !cls || !subject || !pin) {
+      alert("Please fill all fields.");
+      return;
+    }
+
+    if (pin !== validPins[cls]) {
+      alert("Invalid PIN for " + cls.toUpperCase());
+      return;
+    }
+
+    localStorage.setItem("studentName", name);
+    window.location.href = `pages/${cls}_${subject}.html`;
+  }
+</script>
+
+</body>
+</html>
